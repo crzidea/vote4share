@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>创新思享汇-讲师评选</title>
+    <!-- global css -->
+    <link rel="stylesheet" href="./resources/global.css" type="text/css">
+    <link rel="stylesheet" href="./resources/style.css" type="text/css">
+    <!-- self css -->
+    <link rel="stylesheet" href="./resources/style(1).css" type="text/css">
+    <script type="text/javascript" src="./resources/sohuflash_1.js"></script>
+    <script type="text/javascript" src="./resources/jquery-1.js"></script>
+    <script src="./resources/jquery_scroll.js" type="text/javascript"></script>
+    <script src="./resources/jquery.simplemodal.js" type="text/javascript"></script>
+    <!-- Contact Form JS and CSS files -->
+    <script src="./resources/basic.js" type="text/javascript"></script>
+    <script src="./resources/global.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./resources/sdevFormCheck_gb.js"></script>
+    <script type="text/javascript">
+        var img = new Image();
+        img.src = "http://zj.svip.sohu.com/theme/one/images/votebutton_s.gif";
+    </script>
+</head>
+<body>
+
+<div class="collectNav" id="basicModal">
+    <ul>
+        <li><a target="_self" class="basic">创新思享汇-讲师评选</a></li>
+    </ul>
+</div>
+<div class="entry378" id="basicModalContent" name="=&quot;basicModalContent&quot;" style="display:none">
+    <form id="form_any" name="form_any" method="post" enctype="multipart/form-data"
+          action="http://zj.svip.sohu.com/focus/2012/xysyds/upload.php?action=add_any" target="hidden_frame">
+        <h3>活动回顾</h3>
+
+        <div class="entryBody">
+            <div class="entryF">
+                <fieldset>
+                    <ul>
+                        <li>
+                            <div class="left">
+                                <label>
+                                    <span class="note">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    活动回顾
+                                </label>
+                            </div>
+                            <div class="right">
+                                <input name="upfile" type="file" id="upfile" class="in179" onkeydown="return false"
+                                       onselect="return false">
+                                <span class="note">(С��1M,����jpg,png)</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left"><label><span class="note">(����)</span>���</label></div>
+                            <div class="right"><input name="up_name" type="text" value=""
+                                                      onkeydown="return f.allow(this,event)" onkeyup="f.cut(this,event)"
+                                                      class="in233">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left">
+                                <label class="bg"><span
+                                        class="note">(����)</span>��������ȫ�Ҹ�
+                                </label>
+                            </div>
+                            <div class="right">
+                                <label>
+                                    <select name="category_id">
+                                        <option label="��������ȫ�Ҹ�" value="3308">��������ȫ�Ҹ�</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left"><label class="bg"><span class="note">(����)</span>��Ʒ����</label>
+                            </div>
+                            <div class="right">
+                                <label>
+                                    <select name="class_id">
+                                        <option label="��������ȫ�Ҹ�" value="1481">��������ȫ�Ҹ�</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                </fieldset>
+            </div>
+            <div class="blank10"></div>
+            <div class="entryF noborder">
+                <fieldset>
+                    <ul>
+                        <li>
+                            <div class="left"><label><span class="note">(����)</span>����</label></div>
+                            <div class="right"><input name="name" type="text" value=""
+                                                      onkeydown="return f.allow(this,event)" onkeyup="f.cut(this,event)"
+                                                      class="in233">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left"><label><span class="note">(����)</span>��ϵ�绰</label></div>
+                            <div class="right"><input name="phone" type="text" value=""
+                                                      onkeydown="return f.allow(this,event)" onkeyup="f.cut(this,event)"
+                                                      class="in233">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left"><label><span class="note">(����)</span>��֤��</label></div>
+                            <div class="right"><input class="in179" id="validate" name="validate">&nbsp;<a
+                                    href="javaScript:DoFresh()"><img id="checkpic" src="" width="55" height="27"></a>
+                            </div>
+                        </li>
+                        <li>
+                            <input type="hidden" name="is_pub" value="">
+                            <input name="" type="button" value="�� ��" class="submit" onclick="formSubmit();">
+                        </li>
+                    </ul>
+                </fieldset>
+            </div>
+        </div>
+        <div class="entryBot"></div>
+    </form>
+</div>
+<script type="text/javascript">
+
+    function showErrorInfo(alt) {
+        alert(alt);
+    }
+
+    var f = new sdevFormCheck('form_any', showErrorInfo);
+
+    f.add('upfile', {notNull: true, suffix: ['jpg', 'png']}, '���ϴ�jpg,pngͼƬ');
+
+    f.add('up_name', {notNull: true, type: 'text', minLength: 0, maxLength: 40}, '���������');
+
+    f.add('name', {notNull: true, type: 'text', minLength: 0, maxLength: 20}, '����������');
+    f.add('phone', {notNull: true, type: 'text', minLength: 0, maxLength: 11}, '��������ϵ�绰');
+
+    f.add('validate', {notNull: true, type: 'text', minLength: 0, maxLength: 6}, '��������֤��');
+
+    function formSubmit() {
+        if (f.check()) document.form_any.submit();
+    }
+
+    function DoFresh() {
+        var time = Math.random();
+        document.getElementById('checkpic').src = "seccode.php?time=" + time;
+    }
+
+</script>
+<div style="margin: 0px; overflow: hidden; position: relative; height: 0px;">
+    <div id="login" style="margin:-250px 0px 0px; height: auto;">
+        <div class="topBannerBao">
+            <h3>���ϴ���Ʒչʾ
+                <div class="loginClose"><a href="http://zj.svip.sohu.com/focus/2012/xysyds/#" id="closeLogin"><img
+                        src="./resources/iconClose45x15.jpg"></a></div>
+            </h3>
+            <div class="topBanner" style="margin:0px;" id="myShows">
+            </div>
+        </div>
+        <!-- end topBannerBao -->
+    </div>
+</div>
+<div class="login" id="toggleLogin"></div>
+<!-- ����չʾ�� end -->
+<div class="topbar950"></div>
+
+<script language="JavaScript">
+    function jump(obj) {
+        classId = obj.options[obj.selectedIndex].value;
+        window.location.href = "item_list.php?category_id=&class_id=" + classId;
+    }
+</script>
+<div class="wrapper950">
+
+<div class="contentC">
+<div class="left">
+<h3>活动回顾</h3>
+
+<div class="blank5"></div>
+<div class="cateBg">
+    <ul class="photo_grid">
+        <li>
+            <div class="photo_grid_image"><i></i><a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184047.shtml#g=184047&p=1133459"
+                    target="_blank" title="Ͷ�Ұ�"><img src="./resources/Img1133459_s.jpg" alt="Ͷ�Ұ�"></a>
+            </div>
+            <div class="photo_grid_author">��ƣ�<a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184047.shtml#g=184047&p=1133459"
+                    target="_blank" title="Ͷ�Ұ�">Ͷ��...</a><br></div>
+            <div class="photo_grid_author" style="display:none"><span>����:<a
+                    href="http://zj.svip.sohu.com/focus/2012/xysyds/my_list.php?cn=r3TtCYqyJja60YMYpA"
+                    target="_blank">���</a></span></div>
+            <div class="voteBar">Ʊ��<span id="polls15086"></span></div>
+            <div class="voteBar2"><a href="javascript:void(0)" onclick="addvote(this,184047,15086)"><img
+                    src="./resources/votebutton.gif" width="77" height="22" id="vbut15086" name="vbut15086"></a>
+            </div>
+        </li>
+        <li>
+            <div class="photo_grid_image"><i></i><a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184046.shtml#g=184046&p=1133458"
+                    target="_blank" title="�Ҹ�"><img src="./resources/Img1133458_s.jpg" alt="�Ҹ�"></a></div>
+            <div class="photo_grid_author">��ƣ�<a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184046.shtml#g=184046&p=1133458"
+                    target="_blank" title="�Ҹ�">�Ҹ�</a><br></div>
+            <div class="photo_grid_author" style="display:none"><span>����:<a
+                    href="http://zj.svip.sohu.com/focus/2012/xysyds/my_list.php?cn=r3K4XtrhdTS60YMZrQ"
+                    target="_blank">��˧</a></span></div>
+            <div class="voteBar">Ʊ��<span id="polls15085"></span></div>
+            <div class="voteBar2"><a href="javascript:void(0)" onclick="addvote(this,184046,15085)"><img
+                    src="./resources/votebutton.gif" width="77" height="22" id="vbut15085" name="vbut15085"></a>
+            </div>
+        </li>
+        <li>
+            <div class="photo_grid_image"><i></i><a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184045.shtml#g=184045&p=1133457"
+                    target="_blank" title="���ͥ"><img src="./resources/Img1133457_s.jpg" alt="���ͥ"></a>
+            </div>
+            <div class="photo_grid_author">��ƣ�<a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184045.shtml#g=184045&p=1133457"
+                    target="_blank" title="���ͥ">���...</a><br></div>
+            <div class="photo_grid_author" style="display:none"><span>����:<a
+                    href="http://zj.svip.sohu.com/focus/2012/xysyds/my_list.php?cn=r367Wd7kJDG60YMZrA"
+                    target="_blank">����</a></span></div>
+            <div class="voteBar">Ʊ��<span id="polls15084"></span></div>
+            <div class="voteBar2"><a href="javascript:void(0)" onclick="addvote(this,184045,15084)"><img
+                    src="./resources/votebutton.gif" width="77" height="22" id="vbut15084" name="vbut15084"></a>
+            </div>
+        </li>
+        <li>
+            <div class="photo_grid_image"><i></i><a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184044.shtml#g=184044&p=1133456"
+                    target="_blank" title="�Ҹ�һ����"><img src="./resources/Img1133456_s.jpg" alt="�Ҹ�һ����"></a>
+            </div>
+            <div class="photo_grid_author">��ƣ�<a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184044.shtml#g=184044&p=1133456"
+                    target="_blank" title="�Ҹ�һ����">�Ҹ�...</a><br></div>
+            <div class="photo_grid_author" style="display:none"><span>����:<a
+                    href="http://zj.svip.sohu.com/focus/2012/xysyds/my_list.php?cn=%2BCK%2FA4y3djO60YMZow"
+                    target="_blank">��ΰ</a></span></div>
+            <div class="voteBar">Ʊ��<span id="polls15083"></span></div>
+            <div class="voteBar2"><a href="javascript:void(0)" onclick="addvote(this,184044,15083)"><img
+                    src="./resources/votebutton.gif" width="77" height="22" id="vbut15083" name="vbut15083"></a>
+            </div>
+        </li>
+        <li>
+            <div class="photo_grid_image"><i></i><a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184043.shtml#g=184043&p=1133455"
+                    target="_blank" title="�ڹ���"><img src="./resources/Img1133455_s.jpg" alt="�ڹ���"></a>
+            </div>
+            <div class="photo_grid_author">��ƣ�<a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184043.shtml#g=184043&p=1133455"
+                    target="_blank" title="�ڹ���">�ڹ�...</a><br></div>
+            <div class="photo_grid_author" style="display:none"><span>����:<a
+                    href="http://zj.svip.sohu.com/focus/2012/xysyds/my_list.php?cn=qyLqAovjcDC60YMZog"
+                    target="_blank">����</a></span></div>
+            <div class="voteBar">Ʊ��<span id="polls15082"></span></div>
+            <div class="voteBar2"><a href="javascript:void(0)" onclick="addvote(this,184043,15082)"><img
+                    src="./resources/votebutton.gif" width="77" height="22" id="vbut15082" name="vbut15082"></a>
+            </div>
+        </li>
+        <li>
+            <div class="photo_grid_image"><i></i><a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184042.shtml#g=184042&p=1133454"
+                    target="_blank" title="Ͷ���"><img src="./resources/Img1133454_s.jpg" alt="Ͷ���"></a>
+            </div>
+            <div class="photo_grid_author">��ƣ�<a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184042.shtml#g=184042&p=1133454"
+                    target="_blank" title="Ͷ���">Ͷ��...</a><br></div>
+            <div class="photo_grid_author" style="display:none"><span>����:<a
+                    href="http://zj.svip.sohu.com/focus/2012/xysyds/my_list.php?cn=%2F3C%2BDYrrITO60YMZoQ"
+                    target="_blank">�Ż�</a></span></div>
+            <div class="voteBar">Ʊ��<span id="polls15081"></span></div>
+            <div class="voteBar2"><a href="javascript:void(0)" onclick="addvote(this,184042,15081)"><img
+                    src="./resources/votebutton.gif" width="77" height="22" id="vbut15081" name="vbut15081"></a>
+            </div>
+        </li>
+        <li>
+            <div class="photo_grid_image"><i></i><a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184041.shtml#g=184041&p=1133453"
+                    target="_blank" title="�ҵ�����"><img src="./resources/Img1133453_s.jpg"
+                                                         alt="�ҵ�����"></a></div>
+            <div class="photo_grid_author">��ƣ�<a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184041.shtml#g=184041&p=1133453"
+                    target="_blank" title="�ҵ�����">�ҵ�...</a><br></div>
+            <div class="photo_grid_author" style="display:none"><span>����:<a
+                    href="http://zj.svip.sohu.com/focus/2012/xysyds/my_list.php?cn=qHG7W9rrIDC60YMZoA"
+                    target="_blank">����</a></span></div>
+            <div class="voteBar">Ʊ��<span id="polls15080"></span></div>
+            <div class="voteBar2"><a href="javascript:void(0)" onclick="addvote(this,184041,15080)"><img
+                    src="./resources/votebutton.gif" width="77" height="22" id="vbut15080" name="vbut15080"></a>
+            </div>
+        </li>
+        <li>
+            <div class="photo_grid_image"><i></i><a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184063.shtml#g=184063&p=1133475"
+                    target="_blank" title="������"><img src="./resources/Img1133475_s.jpg" alt="������"></a>
+            </div>
+            <div class="photo_grid_author">��ƣ�<a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184063.shtml#g=184063&p=1133475"
+                    target="_blank" title="������">����...</a><br></div>
+            <div class="photo_grid_author" style="display:none"><span>����:<a
+                    href="http://zj.svip.sohu.com/focus/2012/xysyds/my_list.php?cn=%2FnOxWY21JmK60YMZpw"
+                    target="_blank">����</a></span></div>
+            <div class="voteBar">Ʊ��<span id="polls15079"></span></div>
+            <div class="voteBar2"><a href="javascript:void(0)" onclick="addvote(this,184063,15079)"><img
+                    src="./resources/votebutton.gif" width="77" height="22" id="vbut15079" name="vbut15079"></a>
+            </div>
+        </li>
+        <li>
+            <div class="photo_grid_image"><i></i><a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184040.shtml#g=184040&p=1133452"
+                    target="_blank" title="����һ�Ҷ����"><img src="./resources/Img1133452_s.jpg"
+                                                             alt="����һ�Ҷ����"></a></div>
+            <div class="photo_grid_author">��ƣ�<a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184040.shtml#g=184040&p=1133452"
+                    target="_blank" title="����һ�Ҷ����">����...</a><br></div>
+            <div class="photo_grid_author" style="display:none"><span>����:<a
+                    href="http://zj.svip.sohu.com/focus/2012/xysyds/my_list.php?cn=onK5XI%2FrdzO60YMZpg"
+                    target="_blank">��־��</a></span></div>
+            <div class="voteBar">Ʊ��<span id="polls15078"></span></div>
+            <div class="voteBar2"><a href="javascript:void(0)" onclick="addvote(this,184040,15078)"><img
+                    src="./resources/votebutton.gif" width="77" height="22" id="vbut15078" name="vbut15078"></a>
+            </div>
+        </li>
+        <li>
+            <div class="photo_grid_image"><i></i><a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184062.shtml#g=184062&p=1133474"
+                    target="_blank" title="�����Ƿǳ����ֵ�һ����"><img src="./resources/Img1133474_s.jpg"
+                                                                    alt="�����Ƿǳ����ֵ�һ����"></a></div>
+            <div class="photo_grid_author">��ƣ�<a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184062.shtml#g=184062&p=1133474"
+                    target="_blank" title="�����Ƿǳ����ֵ�һ����">����...</a><br></div>
+            <div class="photo_grid_author" style="display:none"><span>����:<a
+                    href="http://zj.svip.sohu.com/focus/2012/xysyds/my_list.php?cn=q368DtzkIWW60YMZpA"
+                    target="_blank">��־��</a></span></div>
+            <div class="voteBar">Ʊ��<span id="polls15076"></span></div>
+            <div class="voteBar2"><a href="javascript:void(0)" onclick="addvote(this,184062,15076)"><img
+                    src="./resources/votebutton.gif" width="77" height="22" id="vbut15076" name="vbut15076"></a>
+            </div>
+        </li>
+        <li>
+            <div class="photo_grid_image"><i></i><a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184039.shtml#g=184039&p=1133451"
+                    target="_blank" title="hong"><img src="./resources/Img1133451_s.jpg" alt="hong"></a>
+            </div>
+            <div class="photo_grid_author">��ƣ�<a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184039.shtml#g=184039&p=1133451"
+                    target="_blank" title="hong">hong</a><br></div>
+            <div class="photo_grid_author" style="display:none"><span>����:<a
+                    href="http://zj.svip.sohu.com/focus/2012/xysyds/my_list.php?cn=qyTtD4nndjS60YMWrA"
+                    target="_blank">����</a></span></div>
+            <div class="voteBar">Ʊ��<span id="polls15074"></span></div>
+            <div class="voteBar2"><a href="javascript:void(0)" onclick="addvote(this,184039,15074)"><img
+                    src="./resources/votebutton.gif" width="77" height="22" id="vbut15074" name="vbut15074"></a>
+            </div>
+        </li>
+        <li>
+            <div class="photo_grid_image"><i></i><a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184061.shtml#g=184061&p=1133473"
+                    target="_blank" title="�����ȫ�Ҹ�"><img src="./resources/Img1133473_s.jpg"
+                                                           alt="�����ȫ�Ҹ�"></a></div>
+            <div class="photo_grid_author">��ƣ�<a
+                    href="http://pics.focus.cn/912330/912392/svip-group-184061.shtml#g=184061&p=1133473"
+                    target="_blank" title="�����ȫ�Ҹ�">����...</a><br></div>
+            <div class="photo_grid_author" style="display:none"><span>����:<a
+                    href="http://zj.svip.sohu.com/focus/2012/xysyds/my_list.php?cn=qiS8C4fldzC60YMWog"
+                    target="_blank">����</a></span></div>
+            <div class="voteBar">Ʊ��<span id="polls15072"></span></div>
+            <div class="voteBar2"><a href="javascript:void(0)" onclick="addvote(this,184061,15072)"><img
+                    src="./resources/votebutton.gif" width="77" height="22" id="vbut15072" name="vbut15072"></a>
+            </div>
+        </li>
+
+    </ul>
+</div>
+<div class="blank10"></div>
+<div class="blank10"></div>
+
+</div>
+<!-- end left -->
+<div class="right">
+    <h3>排行榜</h3>
+
+    <div class="blank5"></div>
+
+    <div class="scroll_chart2">
+        <div class="up_none"></div>
+        <div class="scroll_box2">
+            <ul>
+                <li>
+                    <div class="leftPic"><i></i><a
+                            href="http://pics.focus.cn/912330/912392/svip-group-184028.shtml#g=184028&p=1133440"
+                            target="_blank"><img src="./resources/Img1133440_st.jpg" alt="�˸߲���"></a></div>
+                    <div class="rightInfo">
+                                <span class="num1"><a
+                                        href="http://pics.focus.cn/912330/912392/svip-group-184028.shtml#g=184028&p=1133440"
+                                        target="_blank" title="�˸߲���">�˸߲�...</a></span>
+
+                        <div class="detail">�����:<span class="f_orange">0</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="leftPic"><i></i><a
+                            href="http://pics.focus.cn/912330/912392/svip-group-184039.shtml#g=184039&p=1133451"
+                            target="_blank"><img src="./resources/Img1133451_st.jpg" alt="hong"></a></div>
+                    <div class="rightInfo">
+                                <span class="num2"><a
+                                        href="http://pics.focus.cn/912330/912392/svip-group-184039.shtml#g=184039&p=1133451"
+                                        target="_blank" title="hong">hong</a></span>
+
+                        <div class="detail">�����:<span class="f_orange">0</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="leftPic"><i></i><a
+                            href="http://pics.focus.cn/912330/912392/svip-group-184045.shtml#g=184045&p=1133457"
+                            target="_blank"><img src="./resources/Img1133457_st.jpg" alt="���ͥ"></a></div>
+                    <div class="rightInfo">
+                                <span class="num3"><a
+                                        href="http://pics.focus.cn/912330/912392/svip-group-184045.shtml#g=184045&p=1133457"
+                                        target="_blank" title="���ͥ">���ͥ</a></span>
+
+                        <div class="detail">�����:<span class="f_orange">0</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="leftPic"><i></i><a
+                            href="http://pics.focus.cn/912330/912392/svip-group-184040.shtml#g=184040&p=1133452"
+                            target="_blank"><img src="./resources/Img1133452_st.jpg" alt="����һ�Ҷ����"></a>
+                    </div>
+                    <div class="rightInfo">
+                                <span class="num4"><a
+                                        href="http://pics.focus.cn/912330/912392/svip-group-184040.shtml#g=184040&p=1133452"
+                                        target="_blank" title="����һ�Ҷ����">����һ...</a></span>
+
+                        <div class="detail">�����:<span class="f_orange">0</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="leftPic"><i></i><a
+                            href="http://pics.focus.cn/912330/912392/svip-group-184030.shtml#g=184030&p=1133442"
+                            target="_blank"><img src="./resources/Img1133442_st.jpg" alt="����һ��"></a></div>
+                    <div class="rightInfo">
+                                <span class="num5"><a
+                                        href="http://pics.focus.cn/912330/912392/svip-group-184030.shtml#g=184030&p=1133442"
+                                        target="_blank" title="����һ��">����һ...</a></span>
+
+                        <div class="detail">�����:<span class="f_orange">0</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="leftPic"><i></i><a
+                            href="http://pics.focus.cn/912330/912392/svip-group-184031.shtml#g=184031&p=1133443"
+                            target="_blank"><img src="./resources/Img1133443_st.jpg" alt="����"></a></div>
+                    <div class="rightInfo">
+                                <span class="num6"><a
+                                        href="http://pics.focus.cn/912330/912392/svip-group-184031.shtml#g=184031&p=1133443"
+                                        target="_blank" title="����">����</a></span>
+
+                        <div class="detail">�����:<span class="f_orange">0</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="leftPic"><i></i><a
+                            href="http://pics.focus.cn/912330/912392/svip-group-184044.shtml#g=184044&p=1133456"
+                            target="_blank"><img src="./resources/Img1133456_st.jpg" alt="�Ҹ�һ����"></a></div>
+                    <div class="rightInfo">
+                                <span class="num7"><a
+                                        href="http://pics.focus.cn/912330/912392/svip-group-184044.shtml#g=184044&p=1133456"
+                                        target="_blank" title="�Ҹ�һ����">�Ҹ�һ...</a></span>
+
+                        <div class="detail">�����:<span class="f_orange">0</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="leftPic"><i></i><a
+                            href="http://pics.focus.cn/912330/912392/svip-group-184022.shtml#g=184022&p=1133434"
+                            target="_blank"><img src="./resources/Img1133434_st.jpg" alt="û�ɹ���"></a></div>
+                    <div class="rightInfo">
+                                <span class="num8"><a
+                                        href="http://pics.focus.cn/912330/912392/svip-group-184022.shtml#g=184022&p=1133434"
+                                        target="_blank" title="û�ɹ���">û�ɹ�...</a></span>
+
+                        <div class="detail">�����:<span class="f_orange">0</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="leftPic"><i></i><a
+                            href="http://pics.focus.cn/912330/912392/svip-group-184042.shtml#g=184042&p=1133454"
+                            target="_blank"><img src="./resources/Img1133454_st.jpg" alt="Ͷ���"></a></div>
+                    <div class="rightInfo">
+                                <span class="num9"><a
+                                        href="http://pics.focus.cn/912330/912392/svip-group-184042.shtml#g=184042&p=1133454"
+                                        target="_blank" title="Ͷ���">Ͷ���</a></span>
+
+                        <div class="detail">�����:<span class="f_orange">0</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="leftPic"><i></i><a
+                            href="http://pics.focus.cn/912330/912392/svip-group-183978.shtml#g=183978&p=1133384"
+                            target="_blank"><img src="./resources/Img1133384_st.jpg" alt="ȫ�Ҹ�"></a></div>
+                    <div class="rightInfo">
+                                <span class="num10"><a
+                                        href="http://pics.focus.cn/912330/912392/svip-group-183978.shtml#g=183978&p=1133384"
+                                        target="_blank" title="ȫ�Ҹ�">ȫ�Ҹ�</a></span>
+
+                        <div class="detail">�����:<span class="f_orange">0</span></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="down_none"></div>
+    </div>
+
+    <div class="blank10"></div>
+    <div class="blank10"></div>
+</div>
+<!-- end right -->
+</div>
+<!-- end contentC -->
+</div>
+<div class="bot950"></div>
+</body>
+</html>
