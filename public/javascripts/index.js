@@ -1,23 +1,11 @@
-function TrainCtrl($scope) {
-    $scope.trains = [
-        {name: 'helloname', speaker: 'hellospeaker', votes:123, img: 'Img1133443_st.jpg', link: 'http://sohu.com'},
-        {name: 'helloname', speaker: 'hellospeaker', votes:123, img: 'Img1133443_st.jpg', link: 'http://sohu.com'},
-        {name: 'helloname', speaker: 'hellospeaker', votes:123, img: 'Img1133443_st.jpg', link: 'http://sohu.com'},
-        {name: 'helloname', speaker: 'hellospeaker', votes:123, img: 'Img1133443_st.jpg', link: 'http://sohu.com'},
-        {name: 'helloname', speaker: 'hellospeaker', votes:123, img: 'Img1133456_s.jpg', link: 'http://sohu.com'},
-        {name: 'helloname', speaker: 'hellospeaker', votes:123, img: 'Img1133456_s.jpg', link: 'http://sohu.com'},
-        {name: 'helloname', speaker: 'hellospeaker', votes:123, img: 'Img1133456_s.jpg', link: 'http://sohu.com'},
-        {name: 'helloname', speaker: 'hellospeaker', votes:123, img: 'Img1133456_s.jpg', link: 'http://sohu.com'}
-    ];
+var app = angular.module('app', ['ngResource']);
+app.controller('ShareCtrl', //['scope', '$resource'],
+    function ($scope, $resource) {
 
-    $scope.ranking = [
-        {name: 'helloname', speaker: 'hellospeaker', votes:123, img: 'Img1133443_st.jpg', link: 'http://sohu.com'},
-        {name: 'helloname', speaker: 'hellospeaker', votes:123, img: 'Img1133443_st.jpg', link: 'http://sohu.com'},
-        {name: 'helloname', speaker: 'hellospeaker', votes:123, img: 'Img1133443_st.jpg', link: 'http://sohu.com'},
-        {name: 'helloname', speaker: 'hellospeaker', votes:123, img: 'Img1133443_st.jpg', link: 'http://sohu.com'},
-        {name: 'helloname', speaker: 'hellospeaker', votes:123, img: 'Img1133456_s.jpg', link: 'http://sohu.com'},
-        {name: 'helloname', speaker: 'hellospeaker', votes:123, img: 'Img1133456_s.jpg', link: 'http://sohu.com'},
-        {name: 'helloname', speaker: 'hellospeaker', votes:123, img: 'Img1133456_s.jpg', link: 'http://sohu.com'},
-        {name: 'helloname', speaker: 'hellospeaker', votes:123, img: 'Img1133456_s.jpg', link: 'http://sohu.com'}
-    ];
-}
+        var Share = $resource('share/:id');
+        $scope.share = Share.query();
+
+        var Raning = $resource('share/ranking');
+        $scope.ranking = Raning.query()
+
+    });
