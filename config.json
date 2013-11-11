@@ -1,0 +1,9 @@
+{
+    "redis": {
+        "port": "",
+        "host": "10.2.25.187",
+        "password": ""
+    },
+    "keyPrefix": "",
+    "port": 3000
+}

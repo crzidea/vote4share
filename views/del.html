@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>删除分享</title>
+    <script src="javascripts/angular.min.js"></script>
+    <script src="javascripts/angular-resource.min.js"></script>
+    <script src="javascripts/underscore-min.js"></script>
+    <script src="javascripts/share-ctrl.js"></script>
+</head>
+<body ng-app="app" id="ng-app">
+    <ul ng-controller="ShareCtrl">
+        <li ng-repeat="s in share">
+            <span>
+                <a href="javascript:void(0);" onclick="Share.delete({id:{{s.id}}});">删除</a>
+            </span>
+            <span>{{s.name}}</span>
+        </li>
+    </ul>
+</body>
+</html>

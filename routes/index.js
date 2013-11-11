@@ -1,8 +1,8 @@
 /*
  * GET home page.
  */
-exports.index = function(req, res){
-  res.sendfile('public/index.html');
+exports.index = function (req, res) {
+  res.sendfile('views/index.html');
 };
 
 exports.share = require('./share');

@@ -1,26 +1,54 @@
+var redisClient = require('../lib/redis')
+    , keyPrefix = 'share:'
+    , idKey = 'shareid';
+
+/**
+ * GET: /share
+ */
 exports.list = function (req, res) {
-    var share = [
-        {id: '100', name: 'helloname', speaker: 'hellospeaker', votes: 123, img: 'Img1133443_st.jpg', link: 'http://sohu.com'},
-        {id: '100', name: 'helloname', speaker: 'hellospeaker', votes: 123, img: 'Img1133443_st.jpg', link: 'http://sohu.com'},
-        {id: '100', name: 'helloname', speaker: 'hellospeaker', votes: 123, img: 'Img1133443_st.jpg', link: 'http://sohu.com'},
-        {id: '100', name: 'helloname', speaker: 'hellospeaker', votes: 123, img: 'Img1133443_st.jpg', link: 'http://sohu.com'},
-        {id: '100', name: 'helloname', speaker: 'hellospeaker', votes: 123, img: 'Img1133456_s.jpg', link: 'http://sohu.com'},
-        {id: '100', name: 'helloname', speaker: 'hellospeaker', votes: 123, img: 'Img1133456_s.jpg', link: 'http://sohu.com'},
-        {id: '100', name: 'helloname', speaker: 'hellospeaker', votes: 123, img: 'Img1133456_s.jpg', link: 'http://sohu.com'},
-        {id: '100', name: 'helloname', speaker: 'hellospeaker', votes: 123, img: 'Img1133456_s.jpg', link: 'http://sohu.com'}
-    ];
-    res.json(share);
+
+    var share = [];
+    redisClient.keys(
+        keyPrefix + '*',
+        function (err, replies) {
+            var got = 0;
+            replies.forEach(function (key) {
+                redisClient.hgetall(key, function (err, reply) {
+                    share.push(reply)
+                    ++got == replies.length && res.json(share);
+                })
+            })
+        }
+    )
 };
-exports.ranking = function (req, res) {
-    var share = [
-        {id: '100', name: 'helloname', speaker: 'hellospeaker', votes: 123, img: 'Img1133443_st.jpg', link: 'http://sohu.com'},
-        {id: '100', name: 'helloname', speaker: 'hellospeaker', votes: 123, img: 'Img1133443_st.jpg', link: 'http://sohu.com'},
-        {id: '100', name: 'helloname', speaker: 'hellospeaker', votes: 123, img: 'Img1133456_s.jpg', link: 'http://sohu.com'},
-        {id: '100', name: 'helloname', speaker: 'hellospeaker', votes: 123, img: 'Img1133456_s.jpg', link: 'http://sohu.com'}
-    ];
-    res.json(share);
+
+/**
+ * POST /share/:id/votes
+ */
+exports.votes = function (req, res) {
+    redisClient.hincrby(keyPrefix+req.params.id, 'votes', 1, function (err, reply) {
+        res.json(reply);
+    })
 };
+
+/**
+ * POST /share
+ */
 exports.add = function (req, res) {
+    redisClient.incr(idKey, function (err, id) {
+        req.body.id = id;
+        req.body.votes = 0;
+        redisClient.hmset(keyPrefix+id, req.body, function (err, reply) {
+            res.json({id:id})
+        })
+    })
 };
-exports.vote = function (req, res) {
+
+/**
+ * DELETE /share/:id/del
+ */
+exports.del = function (req, res) {
+    redisClient.del(keyPrefix+req.params.id, function (err, reply) {
+        res.json(reply);
+    })
 };
