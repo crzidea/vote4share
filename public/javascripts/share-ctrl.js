@@ -20,10 +20,10 @@ app.controller('ShareCtrl', function ($scope, $resource) {
             if (confirm(conf)) {
                 Votes.save({id: share.id}, function (data) {
                     share.votes = data.votes;
-                    rank()
+                    rank();
                 });
             };
-        }
+        };
 
         $scope.add = function () {
             var s = {
@@ -39,7 +39,7 @@ app.controller('ShareCtrl', function ($scope, $resource) {
                 $scope.link = "";
                 $scope.img = "";
             })
-        }
+        };
         $scope.del = function () {
             var oldShare = $scope.share;
             $scope.share = [];
@@ -47,6 +47,6 @@ app.controller('ShareCtrl', function ($scope, $resource) {
                 if (!s.del) $scope.share.push(s);
                 else Share.delete({id: s.id});
             });
-        }
+        };
 
 });
