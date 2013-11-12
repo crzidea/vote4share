@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="javascripts/html5shiv.js"></script>
+      <script src="javascripts/respond.min.js"></script>
+      <script type="text/javascript" src="javascripts/json3.min.js"></script>
+    <![endif]-->
+
+    <title>分享管理</title>
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/angular.min.js"></script>
+    <script src="javascripts/angular-resource.min.js"></script>
+    <script src="javascripts/share-ctrl.js"></script>
+    <style type="text/css" media="screen">
+        .del-true {
+          text-decoration: line-through;
+          color: grey;
+        }
+    </style>
+</head>
+<body ng-app="app" id="ng-app">
+    <div class="container" ng-controller="ShareCtrl">
+        <div class="form-group">
+            <form ng-submit="add()">
+                <input class="col-md-2" type="text" ng-model="name" placeholder="分享名称">
+                <input class="col-md-2" type="text" ng-model="speaker" placeholder="讲师">
+                <input class="col-md-2" type="text" ng-model="link" placeholder="链接">
+                <input class="col-md-2" type="text" ng-model="img" placeholder="图片链接">
+                <button class="col-md-2 btn-primary" type="submit">添加</button>
+            </form>
+            <button class="col-md-2 btn-danger" ng-click="del()">删除</button>
+        </div>
+        <ul class="list-unstyled">
+            <li ng-repeat="s in share">
+                <input type="checkbox" ng-model="s.del">
+                <a href="{{s.link}}" target="_blank">
+                <span class="del-{{s.del}}">{{s.name}} 讲师：{{s.speaker}}</span>
+                <img ng-src="{{s.img}}" alt="{{s.name}}">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -26,9 +26,12 @@ exports.list = function (req, res) {
  * POST /share/:id/votes
  */
 exports.votes = function (req, res) {
-    redisClient.hincrby(keyPrefix+req.params.id, 'votes', 1, function (err, reply) {
-        res.json(reply);
-    })
+    redisClient.hincrby(
+        keyPrefix + req.params.id, 'votes', 1,
+        function (err, reply) {
+            res.json({votes: reply});
+        }
+    )
 };
 
 /**
@@ -45,7 +48,7 @@ exports.add = function (req, res) {
 };
 
 /**
- * DELETE /share/:id/del
+ * DELETE /share/:id
  */
 exports.del = function (req, res) {
     redisClient.del(keyPrefix+req.params.id, function (err, reply) {
