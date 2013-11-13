@@ -45,7 +45,7 @@ app.controller('ShareCtrl', function ($scope, $resource) {
             $scope.share = [];
             angular.forEach(oldShare, function(s) {
                 if (!s.del) $scope.share.push(s);
-                else Share.delete({id: s.id});
+                else Share.remove({id: s.id});
             });
         };
 
