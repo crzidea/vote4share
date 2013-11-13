@@ -30,7 +30,7 @@ app.controller('ShareCtrl', function ($scope, $resource) {
                 name: $scope.name,
                 speaker: $scope.speaker,
                 link: $scope.link,
-                img: $scope.img
+                img: $scope.img + '?imageView/2/w/150/h/150/q/100'
             };
             Share.save(s, function (share) {
                 $scope.share.push(s);

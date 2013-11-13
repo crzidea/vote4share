@@ -1,11 +1,11 @@
 /**
  * Module dependencies.
  */
-var express = require('express')
-    , routes = require('./routes')
-    , http = require('http')
-    , path = require('path')
-    , config = require('./config');
+var express = require('express'),
+    routes = require('./routes'),
+    http = require('http'),
+    path = require('path'),
+    config = require('./config');
 
 var app = express()
 
@@ -33,6 +33,6 @@ app.post('/share', routes.share.add);
 app.post('/share/:id/votes', routes.share.votes);
 app.delete('/share/:id', routes.share.del);
 
-http.createServer(app).listen(app.get('port'), function () {
+http.createServer(app).listen(app.get('port'), function() {
     console.log('Express server listening on port ' + app.get('port'));
 });
