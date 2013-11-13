@@ -45,7 +45,7 @@
                                 <img ng-src="{{s.img}}" alt="{{s.name}}"></a>
                         </div>
                         <div class="photo_grid_author">
-                            名称:
+                            名称：
                             <a href="{{s.link}}"
                                target="_blank"
                                title="{{s.name}}">{{s.name}}</a><br></div>
@@ -53,7 +53,7 @@
                             讲师：
                             <a href="{{s.link}}"
                                target="_blank">{{s.speaker}}</a></div>
-                        <div class="voteBar">投票
+                        <div class="voteBar">得票
                             <span id="polls{{s.id}}">{{s.votes}}</span></div>
                         <div class="voteBar2"><a ng-click="vote(s)" href="">
                             <img src="./resources/votebutton.gif" width="77" height="22"
@@ -89,7 +89,7 @@
                                     </span>
 
                                 <div class="detail">讲师:<span>{{s.speaker}}</span></div>
-                                <div class="detail">点击数:<span class="f_orange">{{s.votes}}</span></div>
+                                <div class="detail">得票:<span class="f_orange">{{s.votes}}</span></div>
                             </div>
                         </li>
                     </ul>

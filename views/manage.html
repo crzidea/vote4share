@@ -49,11 +49,22 @@
         </div>
 
         <ul class="list-unstyled">
-            <li ng-repeat="s in share">
-                <input type="checkbox" ng-model="s.del">
+            <li class="row">
+                <span class="col-md-1">#</span>
+                <span class="col-md-1">分享名称</span>
+                <span class="col-md-1">讲师</span>
+                <span class="col-md-7">链接</span>
+                <span class="col-md-2">图片</span>
+            </li>
+            <li class="row" ng-repeat="s in share">
+                <span class="col-md-1">
+                    <input type="checkbox" ng-model="s.del">
+                </span>
                 <a href="{{s.link}}" target="_blank">
-                <span class="del-{{s.del}}">{{s.name}} 讲师：{{s.speaker}}</span>
-                <img ng-src="{{s.img}}" alt="{{s.name}}">
+                    <span class="col-md-1 del-{{s.del}}">{{s.name}}</span>
+                    <span class="col-md-1 del-{{s.del}}">讲师：{{s.speaker}}</span>
+                    <a class="col-md-7 del-{{s.del}}" href="{{s.link}}">{{s.link}}</a>
+                    <img class="col-md-2" ng-src="{{s.img}}" alt="{{s.name}}">
                 </a>
             </li>
         </ul>
