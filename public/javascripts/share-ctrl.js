@@ -54,7 +54,7 @@ app.controller('ShareCtrl', function($scope, $resource) {
             $scope.share.push(s);
             $scope.speaker = "";
             $scope.img = "";
-            $scope.subjects = []
+            $scope.subjects = [{}]
         })
     };
     $scope.del = function() {
