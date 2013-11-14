@@ -11,7 +11,6 @@ app.controller('ShareCtrl', function($scope, $resource) {
     });
 
     function rank() {
-        console.log($scope.share);
         var share = [];
         angular.forEach($scope.share, function(s) {
             share.push(s);

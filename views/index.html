@@ -6,23 +6,44 @@
     <title>创新思享汇-2013年度讲师评选</title>
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.min.css" type="text/css">
+    <link rel="stylesheet" href="./resources/style.css" type="text/css">
     <style type="text/css">
-      .col-md-6#change{
+      .cube{width: 22%;}
+      .font{width: 77%;}
+      .col-md-6.change{
         width: 47%;
         height: 232px;
         border: 1px solid #aaaaaa;
         padding: 20px 0;
         border-radius: 8px;
-        margin-right: 3%;
-        margin-bottom: 27px;
+        margin-right: 1%;
+        margin-bottom: 7px;
         background-color: #fff;
+      }
+      .col-md-5.img{
+        padding-right: 0;
       }
       .change_h3{
         margin-top: 30px;
         margin-bottom: 20px;
       }
-      #img_center{
+      .h3-left{
+        text-align: right;
+        margin-right: 35px;
+      }
+      .li-ranking{
+        margin-bottom: 20px;
+      }
+      .img-ranking{
         text-align: center;
+        padding: 0;
+      }
+      .ranking-info{
+        /*padding:10px 5px 5px 10px; */
+        padding: 20px;
+      }
+      .ranking-votes{
+        margin-top: 20px;
       }
     </style>
     <!--[if lt IE 10]>
@@ -35,30 +56,30 @@
 </head>
 <body ng-app="app" id="ng-app">
 <div class="container">
-    <img class="left" src="http://vote4share.u.qiniudn.com/cube.png?imageView/1/w/206/h/156">
-    <img class="left" src="http://vote4share.u.qiniudn.com/font.png?imageView/2/w/726">
+    <img class="cube" src="http://vote4share.u.qiniudn.com/cube.png?imageView/2/h/299">
+    <img class="font" src="http://vote4share.u.qiniudn.com/font.png?imageView/2/h/189">
 </div>
 <div class="container"></div>
 <div class="container">
 
     <div class="row" ng-controller="ShareCtrl">
         <div class="col-md-10 pull-left">
-            <h3 class="change_h3">讲师评选</h3>
+            <h3 class="change_h3 h3-left">2013年度讲师评选</h3>
             <div class="row">
                 <ul class="list-unstyled">
-                    <li class="col-md-6" ng-repeat="s in share" id="change">
-                        <div class="col-md-5"><i></i>
-                                <img class="img-rounded" ng-src="{{s.img}}?imageView/2/w/180/h/180" alt="{{s.name}}">
+                    <li class="col-md-6 change" ng-repeat="s in share">
+                        <div class="col-md-5 img"><i></i>
+                            <img class="img-rounded" ng-src="{{s.img}}?imageView/1/w/190/h/190" alt="{{s.name}}">
                         </div>
-                        <div class="col-md-7">
-                            <div class="photo_grid_author"> 讲师： {{s.speaker}}</div>
+                        <div class="col-md-7 share">
+                            <div class="photo_grid_author">讲师： {{s.speaker}}</div>
                             <div class="voteBar">得票
                                 <span id="polls{{s.id}}">{{s.votes}}</span></div>
                             <div class="voteBar2"><a ng-click="vote(s)" href="">
                                 <img src="./resources/votebutton.gif" width="77"
                                  height="22" id="vbut{{s.id}}" name="vbut{{s.id}}"></a>
                             </div>
-                            <div class="photo_grid_author"> 主题：
+                            <div class="photo_grid_author">主题：
                                 <ul>
                                     <li ng-repeat="sub in s.subjects">
                                         <a href="{{sub.link}}" target="_blank"
@@ -84,25 +105,21 @@
                 <div class="up_none"></div>
                 <div class="scroll_box2">
                     <ul class="list-unstyled">
-                        <li class="row" ng-repeat="s in rankList">
-                            <div class="col-md-6" id="img_center"><i></i>
-                                    <img class="img-circle" ng-src="{{s.img}}?imageView/2/w/94/h/75" alt="{{s.name}}">
+                        <li class="row li-ranking" ng-repeat="s in rankList">
+                            <div class="col-md-7 img-ranking">
+                                <img class="img-circle" ng-src="{{s.img}}?imageView/1/w/113/h/113" alt="{{s.name}}">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-5 ranking-info">
                                 <span class="num{{s.ranking}}">
-                                <div class="detail">{{s.speaker}}</div>
+                                    <span>{{s.speaker}}</span>
                                 </span>
-                                <div style="height: 15px"></div>
-                                <div class="detail">得票:<span class="f_orange">{{s.votes}}</span></div>
+                                <div class="ranking-votes">得票:<span class="f_orange">{{s.votes}}</span></div>
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div class="down_none"></div>
             </div>
-
-            <div class="blank10"></div>
-            <div class="blank10"></div>
         </div>
         <!-- end right -->
     </div>

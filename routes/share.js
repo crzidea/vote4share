@@ -1,5 +1,5 @@
 var redisClient = require('../lib/redis')
-    , keyPrefix = 'share:'
+    , keyPrefix = require('../config').keyPrefix
     , idKey = 'shareid';
 
 /**

@@ -4,6 +4,6 @@
         "host": "10.2.25.187",
         "password": ""
     },
-    "keyPrefix": "",
+    "keyPrefix": "share:",
     "port": 8000
 }
