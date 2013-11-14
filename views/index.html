@@ -4,8 +4,8 @@
     <meta charset="utf-8">
 
     <title>创新思享汇-2013年度讲师评选</title>
-    <link rel="stylesheet" href="./resources/global.css" type="text/css">
-    <link rel="stylesheet" href="./resources/style.css" type="text/css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.min.css" type="text/css">
     <!--[if lt IE 10]>
     <script type="text/javascript" src="./javascripts/json3.min.js"></script>
     <![endif]-->
@@ -13,49 +13,42 @@
     <script type="text/javascript" src="./javascripts/angular.min.js"></script>
     <script type="text/javascript" src="./javascripts/angular-resource.min.js"></script>
     <script type="text/javascript" src="./javascripts/share-ctrl.js"></script>
-    <!-- Contact Form JS and CSS files -->
-    <script src="./resources/basic.js" type="text/javascript"></script>
-    <script src="./resources/global.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        var img = new Image();
-        img.src = "http://zj.svip.sohu.com/theme/one/images/votebutton_s.gif";
-    </script>
 </head>
 <body ng-app="app" id="ng-app">
-<div class="wrapper950" style="text-align:center">
+<div class="container">
     <img class="left" src="http://vote4share.u.qiniudn.com/cube.png?imageView/1/w/206/h/156">
     <img class="left" src="http://vote4share.u.qiniudn.com/font.png?imageView/2/w/726">
 </div>
-<div class="topbar950"></div>
-<div class="wrapper950">
+<div class="container"></div>
+<div class="container">
 
-    <div class="contentC" ng-controller="ShareCtrl">
-        <div class="left">
+    <div class="row" ng-controller="ShareCtrl">
+        <div class="col-md-10 pull-left">
             <h3>讲师评选</h3>
 
-            <div class="blank5"></div>
-            <div class="cateBg">
-                <ul class="photo_grid">
-                    <li ng-repeat="s in share">
-                        <div class="photo_grid_image"><i></i>
-                                <img ng-src="{{s.img}}?imageView/2/w/150/h150" alt="{{s.name}}">
+            <div class="row"></div>
+            <div class="row">
+                <ul class="list-unstyled">
+                    <li class="col-md-6" ng-repeat="s in share">
+                        <div class="col-md-5"><i></i>
+                                <img class="img-rounded" ng-src="{{s.img}}?imageView/2/h/122" alt="{{s.name}}">
                         </div>
-                        <div class="photo_grid_author">
-                            讲师： {{s.speaker}}</div>
-                        <div class="photo_grid_author">
-                            <ul>
-                                主题：
-                                <li ng-repeat="sub in s.subjects">
-                                    <a href="{{sub.link}}" target="_blank"
-                                       title="{{sub.name}}">{{sub.name}}</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="voteBar">得票
-                            <span id="polls{{s.id}}">{{s.votes}}</span></div>
-                        <div class="voteBar2"><a ng-click="vote(s)" href="">
-                            <img src="./resources/votebutton.gif" width="77"
-                             height="22" id="vbut{{s.id}}" name="vbut{{s.id}}"></a>
+                        <div class="col-md-7">
+                            <div class="photo_grid_author"> 讲师： {{s.speaker}}</div>
+                            <div class="voteBar">得票
+                                <span id="polls{{s.id}}">{{s.votes}}</span></div>
+                            <div class="voteBar2"><a ng-click="vote(s)" href="">
+                                <img src="./resources/votebutton.gif" width="77"
+                                 height="22" id="vbut{{s.id}}" name="vbut{{s.id}}"></a>
+                            </div>
+                            <div class="photo_grid_author"> 主题：
+                                <ul>
+                                    <li ng-repeat="sub in s.subjects">
+                                        <a href="{{sub.link}}" target="_blank"
+                                           title="{{sub.name}}">{{sub.date}} {{sub.name}}</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </li>
                 </ul>
@@ -65,24 +58,24 @@
 
         </div>
         <!-- end left -->
-        <div class="right">
+        <div class="pull-right col-md-2">
             <h3>排行榜</h3>
 
-            <div class="blank5"></div>
+            <div class="row"></div>
 
-            <div class="scroll_chart2">
+            <div class="row">
                 <div class="up_none"></div>
                 <div class="scroll_box2">
-                    <ul>
-                        <li ng-repeat="s in rankList">
-                            <div class="leftPic"><i></i>
-                                    <img ng-src="{{s.img}}?imageView/2/w/94/h/75" alt="{{s.name}}">
+                    <ul class="list-unstyled">
+                        <li class="row" ng-repeat="s in rankList">
+                            <div class="col-md-6"><i></i>
+                                    <img class="img-circle" ng-src="{{s.img}}?imageView/2/w/94/h/75" alt="{{s.name}}">
                             </div>
-                            <div class="rightInfo">
+                            <div class="col-md-6">
                                 <span class="num{{s.ranking}}">
                                 <div class="detail">{{s.speaker}}</div>
                                 </span>
-                                <div style="height: 25px"></div>
+                                <div style="height: 15px"></div>
                                 <div class="detail">得票:<span class="f_orange">{{s.votes}}</span></div>
                             </div>
                         </li>
@@ -98,6 +91,7 @@
     </div>
     <!-- end contentC -->
 </div>
-<div class="bot950"></div>
+<div class="container"></div>
+<script type="text/javascript" src="./bootstrap/js/boostrap.min.js"></script>
 </body>
 </html>
