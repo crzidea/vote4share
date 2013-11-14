@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <title>创新思享汇-2013年度讲师评选</title>
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.min.css" type="text/css">
+    <style type="text/css">
+      .col-md-6#change{
+        width: 47%;
+        height: 232px;
+        border: 1px solid #aaaaaa;
+        padding: 20px 0;
+        border-radius: 8px;
+        margin-right: 3%;
+        margin-bottom: 27px;
+        background-color: #fff;
+      }
+      .change_h3{
+        margin-top: 30px;
+        margin-bottom: 20px;
+      }
+      #img_center{
+        text-align: center;
+      }
+    </style>
     <!--[if lt IE 10]>
     <script type="text/javascript" src="./javascripts/json3.min.js"></script>
     <![endif]-->
@@ -24,14 +43,12 @@
 
     <div class="row" ng-controller="ShareCtrl">
         <div class="col-md-10 pull-left">
-            <h3>讲师评选</h3>
-
-            <div class="row"></div>
+            <h3 class="change_h3">讲师评选</h3>
             <div class="row">
                 <ul class="list-unstyled">
-                    <li class="col-md-6" ng-repeat="s in share">
+                    <li class="col-md-6" ng-repeat="s in share" id="change">
                         <div class="col-md-5"><i></i>
-                                <img class="img-rounded" ng-src="{{s.img}}?imageView/2/h/122" alt="{{s.name}}">
+                                <img class="img-rounded" ng-src="{{s.img}}?imageView/2/w/180/h/180" alt="{{s.name}}">
                         </div>
                         <div class="col-md-7">
                             <div class="photo_grid_author"> 讲师： {{s.speaker}}</div>
@@ -59,7 +76,7 @@
         </div>
         <!-- end left -->
         <div class="pull-right col-md-2">
-            <h3>排行榜</h3>
+            <h3 class="change_h3">排行榜</h3>
 
             <div class="row"></div>
 
@@ -68,7 +85,7 @@
                 <div class="scroll_box2">
                     <ul class="list-unstyled">
                         <li class="row" ng-repeat="s in rankList">
-                            <div class="col-md-6"><i></i>
+                            <div class="col-md-6" id="img_center"><i></i>
                                     <img class="img-circle" ng-src="{{s.img}}?imageView/2/w/94/h/75" alt="{{s.name}}">
                             </div>
                             <div class="col-md-6">
@@ -92,6 +109,6 @@
     <!-- end contentC -->
 </div>
 <div class="container"></div>
-<script type="text/javascript" src="./bootstrap/js/boostrap.min.js"></script>
+<script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
