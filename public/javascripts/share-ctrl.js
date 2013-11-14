@@ -47,7 +47,7 @@ app.controller('ShareCtrl', function($scope, $resource) {
         var s = {
             speaker: $scope.speaker,
             img: $scope.img,
-            subjects: $scope.subjects,
+            subjects: $scope.subjects
         };
         Share.save(s, function(share) {
             $scope.share.push(s);

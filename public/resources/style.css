@@ -1,3 +1,41 @@
+.cube{width: 22%;}
+.font{width: 77%;}
+.col-md-6.change{
+    width: 47%;
+    height: 232px;
+    border: 1px solid #aaaaaa;
+    padding: 20px 0;
+    border-radius: 8px;
+    margin-right: 1%;
+    margin-bottom: 7px;
+    background-color: #fff;
+}
+.col-md-5.img{
+    padding-right: 0;
+}
+.change_h3{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.h3-left{
+    text-align: right;
+    margin-right: 35px;
+}
+.li-ranking{
+    margin-bottom: 20px;
+}
+.img-ranking{
+    text-align: center;
+    padding: 0;
+}
+.ranking-info{
+    padding: 20px;
+}
+.ranking-votes{
+    margin-top: 20px;
+}
+
+
 .num1{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat; text-indent:20px; height: 13px}
 .num2{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -13px; text-indent:20px; height: 13px}
 .num3{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -26px; text-indent:20px; height: 13px}
