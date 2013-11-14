@@ -5,19 +5,24 @@ app.controller('ShareCtrl', function($scope, $resource) {
 
     var Share = $resource('share/:id', {
         id: '@id'
-    }),
-        Votes = $resource('share/:id/votes', {
-            id: '@id'
-        });
+    });
+    var Votes = $resource('share/:id/votes', {
+        id: '@id'
+    });
 
     function rank() {
+        console.log($scope.share);
         var share = [];
         angular.forEach($scope.share, function(s) {
             share.push(s);
         })
-        $scope.ranking = share.sort(function(a, b) {
+        share = share.sort(function(a, b) {
             return b.votes - a.votes;
         }).slice(0, rankingLength);
+        angular.forEach(share, function(s, i) {
+            s.ranking = ++i;
+        });
+        $scope.rankList = share;
     }
 
     $scope.share = Share.query(rank);
@@ -25,8 +30,8 @@ app.controller('ShareCtrl', function($scope, $resource) {
     $scope.vote = function(share) {
 
         var votes,
-            conf = '确认给《' + share.name + ' 讲师：' +
-                share.speaker + '》投票吗？';
+            conf = '支持讲师 ' +
+                share.speaker + ' ？';
 
         if (confirm(conf)) {
             Votes.save({
@@ -41,17 +46,15 @@ app.controller('ShareCtrl', function($scope, $resource) {
 
     $scope.add = function() {
         var s = {
-            name: $scope.name,
             speaker: $scope.speaker,
-            link: $scope.link,
-            img: $scope.img + '?imageView/2/w/150/h/150/q/100'
+            img: $scope.img,
+            subjects: $scope.subjects,
         };
         Share.save(s, function(share) {
             $scope.share.push(s);
-            $scope.name = "";
             $scope.speaker = "";
-            $scope.link = "";
             $scope.img = "";
+            $scope.subjects = []
         })
     };
     $scope.del = function() {
@@ -64,5 +67,11 @@ app.controller('ShareCtrl', function($scope, $resource) {
             });
         });
     };
+
+    $scope.subjects = [{}];
+    $scope.addSub = function() {
+        $scope.subjects.push({});
+    };
+
 
 });

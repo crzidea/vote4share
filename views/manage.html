@@ -13,7 +13,7 @@
       <script type="text/javascript" src="javascripts/json3.min.js"></script>
     <![endif]-->
 
-    <title>分享管理</title>
+    <title>讲师信息管理</title>
     <script src="javascripts/jquery.js"></script>
     <script src="javascripts/angular.min.js"></script>
     <script src="javascripts/angular-resource.min.js"></script>
@@ -29,13 +29,19 @@
     <div class="container" ng-controller="ShareCtrl">
         <div class="row form-group">
             <form ng-submit="add()">
-                <input class="col-md-2" type="text" ng-model="name" placeholder="分享名称">
-                <input class="col-md-2" type="text" ng-model="speaker" placeholder="讲师">
-                <input class="col-md-2" type="text" ng-model="link" placeholder="链接">
-                <input class="col-md-2" type="text" ng-model="img" placeholder="图片链接">
-                <button class="col-md-2 btn-primary" type="submit">添加</button>
+                <input class="col-md-1" type="text" ng-model="speaker" placeholder="讲师">
+                <input class="col-md-8" type="text" ng-model="img" placeholder="图片链接">
+                <button class="col-md-1 btn-success" type="submit">添加</button>
             </form>
-            <button class="col-md-2 btn-danger" ng-click="del()">删除</button>
+            <button class="col-md-1 btn-primary" ng-click="addSub()">添加主题</button>
+            <button class="col-md-1 btn-danger" ng-click="del()">删除</button>
+        </div>
+        <div class="row form-group" id="sub-form">
+            <div class="col-md-12" ng-repeat="s in subjects">
+                <input class="col-md-3" type="text" ng-model="s.name" placeholder="主题">
+                <input class="col-md-2" type="text" ng-model="s.date" placeholder="日期">
+                <input class="col-md-7" type="text" ng-model="s.link" placeholder="链接">
+            </div>
         </div>
 
         <div class="row panel panel-default">
@@ -51,21 +57,29 @@
         <ul class="list-unstyled">
             <li class="row">
                 <span class="col-md-1">#</span>
-                <span class="col-md-1">分享名称</span>
                 <span class="col-md-1">讲师</span>
-                <span class="col-md-7">链接</span>
+                <span class="col-md-8">
+                    <div class="row">
+                        <span class="col-md-4">主题</span>
+                        <span class="col-md-2">日期</span>
+                        <span class="col-md-6">链接</span>
+                    </div>
+                </span>
                 <span class="col-md-2">图片</span>
             </li>
             <li class="row" ng-repeat="s in share">
                 <span class="col-md-1">
                     <input type="checkbox" ng-model="s.del">
                 </span>
-                <a href="{{s.link}}" target="_blank">
-                    <span class="col-md-1 del-{{s.del}}">{{s.name}}</span>
-                    <span class="col-md-1 del-{{s.del}}">讲师：{{s.speaker}}</span>
-                    <a class="col-md-7 del-{{s.del}}" href="{{s.link}}">{{s.link}}</a>
-                    <img class="col-md-2" ng-src="{{s.img}}" alt="{{s.name}}">
-                </a>
+                <span class="col-md-1 del-{{s.del}}">{{s.speaker}}</span>
+                <span class="col-md-8">
+                    <div class="row" ng-repeat="sub in s.subjects">
+                        <span class="col-md-4 del-{{s.del}}">{{sub.name}}</span>
+                        <span class="col-md-2 del-{{s.del}}">{{sub.date}}</span>
+                        <a class="col-md-6 del-{{s.del}}" href="{{s.link}}">{{sub.link}}</a>
+                    </div>
+                </span>
+                <img class="col-md-2" ng-src="{{s.img}}?imageView/2/w/150/h/150" alt="{{s.name}}">
             </li>
         </ul>
     </div>
