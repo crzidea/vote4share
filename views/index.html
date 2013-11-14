@@ -67,7 +67,7 @@
             <h3 class="change_h3 h3-left">2013年度讲师评选</h3>
             <div class="row">
                 <ul class="list-unstyled">
-                    <li class="col-md-6 change" ng-repeat="s in share">
+                    <li class="col-md-6 change" ng-repeat="s in share" id="share{{s.id}}">
                         <div class="col-md-5 img"><i></i>
                             <img class="img-rounded" ng-src="{{s.img}}?imageView/1/w/190/h/190" alt="{{s.name}}">
                         </div>
@@ -107,11 +107,15 @@
                     <ul class="list-unstyled">
                         <li class="row li-ranking" ng-repeat="s in rankList">
                             <div class="col-md-7 img-ranking">
-                                <img class="img-circle" ng-src="{{s.img}}?imageView/1/w/113/h/113" alt="{{s.name}}">
+                                <a href="#share{{s.id}}">
+                                    <img class="img-circle" ng-src="{{s.img}}?imageView/1/w/113/h/113" alt="{{s.name}}">
+                                </a>
                             </div>
                             <div class="col-md-5 ranking-info">
                                 <span class="num{{s.ranking}}">
-                                    <span>{{s.speaker}}</span>
+                                    <a href="#share{{s.id}}">
+                                        <span>{{s.speaker}}</span>
+                                    </a>
                                 </span>
                                 <div class="ranking-votes">得票:<span class="f_orange">{{s.votes}}</span></div>
                             </div>
