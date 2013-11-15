@@ -4,12 +4,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <title>创新思享汇-2013年度讲师评选</title>
+    <!--[if lt IE 9]>
+    <script type="text/javascript">window.location="./ie.html";</script>
+    <![endif]-->
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.min.css" type="text/css">
     <link rel="stylesheet" href="./resources/style.css" type="text/css">
-    <!--[if lt IE 10]>
-    
-    <![endif]-->
     <script type="text/javascript" src="./javascripts/jquery.js"></script>
     <script type="text/javascript" src="./javascripts/angular.min.js"></script>
     <script type="text/javascript" src="./javascripts/angular-resource.min.js"></script>
@@ -34,8 +34,7 @@
                         </div>
                         <div class="col-md-7 share">
                             <div class="photo_grid_author">讲师： {{s.speaker}}</div>
-                            <div class="voteBar">得票
-                                <span id="polls{{s.id}}">{{s.votes}}</span></div>
+                            <div class="voteBar">得票： {{s.votes}}</div>
                             <div class="voteBar2"><a ng-click="vote(s)" href="">
                                 <img src="./resources/votebutton.gif" width="77"
                                  height="22" id="vbut{{s.id}}" name="vbut{{s.id}}"></a>
