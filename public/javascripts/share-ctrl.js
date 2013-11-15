@@ -46,7 +46,7 @@ app.controller('ShareCtrl', function($scope, $resource) {
     $scope.add = function() {
         var s = {
             speaker: $scope.speaker,
-            img: $scope.img,
+            img: $scope.img || 'http://vote4share.u.qiniudn.com/cube.png',
             subjects: $scope.subjects
         };
         Share.save(s, function(share) {

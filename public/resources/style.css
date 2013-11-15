@@ -2,7 +2,7 @@
 .font{width: 77%;}
 .col-md-6.change{
     width: 47%;
-    height: 232px;
+    min-height: 232px;
     border: 1px solid #aaaaaa;
     padding: 20px 0;
     border-radius: 8px;
@@ -12,6 +12,9 @@
 }
 .col-md-5.img{
     padding-right: 0;
+}
+.col-md-7.share{
+    padding-left: 30px;
 }
 .change_h3{
     margin-top: 30px;
@@ -29,35 +32,34 @@
     padding: 0;
 }
 .ranking-info{
-    padding: 20px 0 20px 20px;
+    padding: 20px;
 }
 .ranking-votes{
     margin-top: 20px;
-}
+} 
 .a_top{
     position: relative;
-    top: -2px;
-    left: 2px;
+    top: -17px;
+    left: 18px;
 }
 
-
-.num1{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat; height: 13px;width: 15px;}
-.num2{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -13px; height: 13px;width: 15px;}
-.num3{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -26px; height: 13px;width: 15px;}
-.num4{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -39px; height: 13px;width: 15px;}
-.num5{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -52px; height: 13px;width: 15px;}
-.num6{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -65px; height: 13px;width: 15px;}
-.num7{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -78px; height: 13px;width: 15px;}
-.num8{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -91px; height: 13px;width: 15px;}
-.num9{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -104px; height: 13px;width: 15px;}
-.num10{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -117px; height: 13px;width: 15px;}
-.num11{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -130px; height: 13px;width: 15px;}
-.num12{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -143px; height: 13px;width: 15px;}
-.num13{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -156px; height: 13px;width: 15px;}
-.num14{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -169px; height: 13px;width: 15px;}
-.num15{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -182px; height: 13px;width: 15px;}
-.num16{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -195px; height: 13px;width: 15px;}
-.num17{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -208px; height: 13px;width: 15px;}
-.num18{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -221px; height: 13px;width: 15px;}
-.num19{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -234px; height: 13px;width: 15px;}
-.num20{display:inline-block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -247px; height: 13px;width: 15px;}
+.num1{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat; text-indent:20px; height: 13px}
+.num2{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -13px; text-indent:20px; height: 13px}
+.num3{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -26px; text-indent:20px; height: 13px}
+.num4{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -39px; text-indent:20px; height: 13px}
+.num5{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -52px; text-indent:20px; height: 13px}
+.num6{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -65px; text-indent:20px; height: 13px}
+.num7{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -78px; text-indent:20px; height: 13px}
+.num8{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -91px; text-indent:20px; height: 13px}
+.num9{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -104px; text-indent:20px; height: 13px}
+.num10{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -117px; text-indent:20px; height: 13px}
+.num11{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -130px; text-indent:20px; height: 13px}
+.num12{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -143px; text-indent:20px; height: 13px}
+.num13{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -156px; text-indent:20px; height: 13px}
+.num14{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -169px; text-indent:20px; height: 13px}
+.num15{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -182px; text-indent:20px; height: 13px}
+.num16{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -195px; text-indent:20px; height: 13px}
+.num17{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -208px; text-indent:20px; height: 13px}
+.num18{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -221px; text-indent:20px; height: 13px}
+.num19{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -234px; text-indent:20px; height: 13px}
+.num20{display:block; background:url(http://zj.svip.sohu.com/theme/one/images/numberIcon1_10.gif) no-repeat 0 -247px; text-indent:20px; height: 13px}
