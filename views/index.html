@@ -29,7 +29,7 @@
             <h3 class="change_h3 h3-left">2013年度讲师评选</h3>
             <div class="row" id="main-share">
                 <ul class="list-unstyled">
-                    <li class="li-share col-md-6 change" ng-repeat="s in share" id="share{{s.id}}">
+                    <li class="li-share col-md-6 change" ng-repeat="s in share" id="share{{s.id}}" count-share="">
                         <div class="col-md-5 img"><i></i>
                             <img class="img-rounded" ng-src="{{s.img}}?imageView/1/w/190/h/190" alt="{{s.name}}">
                         </div>
@@ -43,8 +43,8 @@
                             <div class="photo_grid_author">主题：
                                 <ul>
                                     <li ng-repeat="sub in s.subjects">
-                                        <a href="{{sub.link}}" target="_blank"
-                                           title="{{sub.name}}">{{sub.date}} {{sub.name}}</a>
+                                        <a href="{{sub.link}}" class="a_an" target="_blank"
+                                           title="{{sub.name}}">{{sub.date}}<br>{{sub.name}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -91,5 +91,48 @@
 </div>
 <div class="container"></div>
 <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+  var container = document.getElementById("main-share");
+  var heights = [0,0];
+  function select_small(arr){
+    var len = arr.length;
+    var j = 0;
+    for(var i=1;i<len;i++){
+        if(arr[i] < arr[j]){
+            j = i;
+        }
+    }
+    return j;
+  }
+  function rank_lis(){
+    var change_lis = $(".change");
+    console.log(change_lis);
+    var len = change_lis.length;
+    console.log(len);
+    for(var i=0;i<len;i++){
+        var nth = select_small(heights);
+        console.log(nth);
+        change_lis[i].style.top = heights[nth] + 'px';
+        change_lis[i].style.left = nth*($(container).width()*48/100)+'px';
+        console.log($(change_lis[i]).outerHeight(true));
+        heights[nth] = heights[nth] + $(change_lis[i]).height() +52;
+
+    }
+  }
+  // rank_lis();
+var shareLoaded = 0;
+app.directive('countShare', function () {
+    return {
+        link: function ($scope) {
+            // console.log($scope.share.length)
+            if(++shareLoaded == $scope.share.length){
+                setTimeout(rank_lis, 0);
+                // rank_lis();
+            }
+        }
+    }
+})
+</script>
 </body>
 </html>
