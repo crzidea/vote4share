@@ -94,7 +94,6 @@
 <script type="text/javascript">
 
   var container = document.getElementById("main-share");
-  var heights = [0,0];
   function select_small(arr){
     var len = arr.length;
     var j = 0;
@@ -106,20 +105,20 @@
     return j;
   }
   function rank_lis(){
+    var heights = [0,0];
     var change_lis = $(".change");
-    console.log(change_lis);
     var len = change_lis.length;
     console.log(len);
     for(var i=0;i<len;i++){
         var nth = select_small(heights);
-        console.log(nth);
         change_lis[i].style.top = heights[nth] + 'px';
         change_lis[i].style.left = nth*($(container).width()*48/100)+'px';
-        console.log($(change_lis[i]).outerHeight(true));
         heights[nth] = heights[nth] + $(change_lis[i]).height() +52;
 
     }
   }
+
+window.onresize = rank_lis;
   // rank_lis();
 var shareLoaded = 0;
 app.directive('countShare', function () {
