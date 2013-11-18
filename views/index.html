@@ -5,7 +5,7 @@
 
     <title>创新思享汇-2013年度讲师评选</title>
     <!--[if lt IE 9]>
-    <script type="text/javascript">window.location="./ie.html";</script>
+    <script type="text/javascript">window.href="./ie.html";</script>
     <![endif]-->
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.min.css" type="text/css">
@@ -14,7 +14,6 @@
     <script type="text/javascript" src="./javascripts/angular.min.js"></script>
     <script type="text/javascript" src="./javascripts/angular-resource.min.js"></script>
     <script type="text/javascript" src="./javascripts/share-ctrl.js"></script>
-    <script type="text/javascript" src="./javascripts/jquery.wookmark.js"></script>
 </head>
 <body ng-app="app" id="ng-app">
 <div class="container">
@@ -93,45 +92,44 @@
 <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
-  var container = document.getElementById("main-share");
-  function select_small(arr){
+var container = document.getElementById("main-share");
+
+function selectSmall(arr) {
     var len = arr.length;
     var j = 0;
-    for(var i=1;i<len;i++){
-        if(arr[i] < arr[j]){
+    for (var i = 1; i < len; i++) {
+        if (arr[i] < arr[j]) {
             j = i;
         }
     }
     return j;
-  }
-  function rank_lis(){
-    var heights = [0,0];
-    var change_lis = $(".change");
-    var len = change_lis.length;
-    console.log(len);
-    for(var i=0;i<len;i++){
-        var nth = select_small(heights);
-        change_lis[i].style.top = heights[nth] + 'px';
-        change_lis[i].style.left = nth*($(container).width()*48/100)+'px';
-        heights[nth] = heights[nth] + $(change_lis[i]).height() +52;
+}
+
+function rankList() {
+    var heights = [0, 0];
+    var changeList = $(".change");
+    var len = changeList.length;
+    for (var i = 0; i < len; i++) {
+        var nth = selectSmall(heights);
+        changeList[i].style.top = heights[nth] + 'px';
+        changeList[i].style.left = nth * ($(container).width() * 48 / 100) + 'px';
+        heights[nth] = heights[nth] + $(changeList[i]).height() + 52;
 
     }
-  }
+}
 
-window.onresize = rank_lis;
-  // rank_lis();
+window.onresize = rankList;
 var shareLoaded = 0;
-app.directive('countShare', function () {
+app.directive('countShare', function() {
     return {
-        link: function ($scope) {
-            // console.log($scope.share.length)
-            if(++shareLoaded == $scope.share.length){
-                setTimeout(rank_lis, 0);
-                // rank_lis();
+        link: function($scope) {
+            if (++shareLoaded == $scope.share.length) {
+                setTimeout(rankList, 0);
             }
         }
     }
 })
+
 </script>
 </body>
 </html>
