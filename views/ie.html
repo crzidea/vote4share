@@ -1,13 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>亲，不用IE行不行！</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>创新思享汇-2013年度讲师评选</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.min.css" type="text/css">
+    <link rel="stylesheet" href="./resources/style.css" type="text/css">
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+ 
+    <script type="text/javascript" src="./javascripts/jquery.js"></script>
+    <script type="text/javascript" src="./javascripts/angular.min.js"></script>
+    <script type="text/javascript" src="./javascripts/angular-resource.min.js"></script>
+    <script type="text/javascript" src="./javascripts/share-ctrl.js"></script>
+
+    <style type="text/css">
+        li.li-share{
+            padding-bottom: 30px;
+
+        }
+    </style>
 </head>
-<body>
-    <center>
-        <img src="./images/face-crying.png">
-        <p>亲爱的狐狸，小程序员是后端工程师，真的没时间做IE兼容啊！</p>
-        <p>使用搜狗浏览的同学请点击地址栏右侧的“兼容”，然后戳<a href="/">这儿</a>。</p>
-    </center>
+<body ng-app="app" id="ng-app">
+<div class="container">
+    <img class="cube" src="http://vote4share.u.qiniudn.com/cube.png?imageView/2/h/299">
+    <img class="font" src="http://vote4share.u.qiniudn.com/font.png?imageView/2/h/189">
+</div>
+<div class="container"></div>
+<div class="container">
+
+    <div class="row" ng-controller="ShareCtrl">
+        <div class="col-md-10">
+            <h3 class="change_h3">2013年度讲师评选</h3>
+            <div class="row" id="main-share">
+                <ul class="list-unstyled">
+                    <li class="row li-share" ng-repeat="s in share" id="share{{s.id}}">
+                        <div class="col-md-3 img"><i></i>
+                            <img class="img-rounded" ng-src="{{s.img}}?imageView/1/w/190/h/190" alt="{{s.name}}">
+                        </div>
+                        <div class="col-md-9 share">
+                            <div class="photo_grid_author">讲师： {{s.speaker}}</div>
+                            <div class="voteBar">得票： {{s.votes}}</div>
+                            <div class="voteBar2"><a ng-click="vote(s)" href="">
+                                <img src="./resources/votebutton.gif" width="77"
+                                 height="22" id="vbut{{s.id}}" name="vbut{{s.id}}"></a>
+                            </div>
+                            <div class="photo_grid_author">主题：
+                                <ul>
+                                    <li ng-repeat="sub in s.subjects">
+                                        <a href="{{sub.link}}" class="a_an" target="_blank"
+                                           title="{{sub.name}}">{{sub.date}}&nbsp;{{sub.name}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="blank10"></div>
+            <div class="blank10"></div>
+
+        </div>
+        <!-- end left -->
+        <div class="col-md-2">
+            <h3 class="change_h3">排行榜</h3>
+
+            <div class="row"></div>
+
+            <div class="row">
+                <div class="up_none"></div>
+                <div class="scroll_box2">
+                    <ul class="list-unstyled">
+                        <li class="row li-ranking" ng-repeat="s in rankList">
+                            <div class="col-md-7 img-ranking">
+                                <a href="#share{{s.id}}">
+                                    <img class="img-circle" ng-src="{{s.img}}?imageView/1/w/113/h/113" alt="{{s.name}}">
+                                </a>
+                            </div>
+                            <div class="col-md-5 ranking-info">
+                                <span class="num{{s.ranking}}"></span>
+                                <a href="#share{{s.id}}" class="a_top">
+                                    <span>{{s.speaker}}</span>
+                                </a>
+                                <div class="ranking-votes">得票:<span class="f_orange">{{s.votes}}</span></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="down_none"></div>
+            </div>
+        </div>
+        <!-- end right -->
+    </div>
+    <!-- end contentC -->
+</div>
+<div class="container"></div>
+<script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
