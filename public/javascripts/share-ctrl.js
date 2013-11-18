@@ -72,5 +72,4 @@ app.controller('ShareCtrl', function($scope, $resource) {
         $scope.subjects.push({});
     };
 
-
 });
