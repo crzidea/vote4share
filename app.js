@@ -8,7 +8,7 @@ var express = require('express'),
     config = require('./config'),
     cluster = require('cluster'),
     http = require('http'),
-    numCPUs = require('os').cpus().length,
+    numCPUs = require('os').cpus().length;
 
 if (cluster.isMaster) {
     // Fork workers.
@@ -20,7 +20,7 @@ if (cluster.isMaster) {
         console.log('worker ' + worker.process.pid + ' died');
     });
 } else {
-    
+
     var app = express()
 
 
