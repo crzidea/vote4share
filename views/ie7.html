@@ -2,12 +2,16 @@
 <html>
 <head>
     <title>亲，不用IE行不行！</title>
+    <!--[if !IE]><!-->
+    <script type="text/javascript">[,];location.href='/';</script>
+    <!--<![endif]-->
 </head>
 <body>
     <center>
         <img src="./images/face-crying.png">
         <p>亲爱的狐狸，小程序员是后端工程师，真的没时间做IE兼容啊！</p>
-        <p>使用搜狗浏览器的同学请点击地址栏右侧的“兼容”，然后戳<a href="/">这儿</a>。</p>
+        <p>使用搜狗浏览器的同学请点击地址栏右侧的“兼容”。</p>
+        <img src="./resources/sogou-compatibility.png">
         <p>建议使用IE9+浏览。</p>
     </center>
 </body>

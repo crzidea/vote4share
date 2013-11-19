@@ -1,9 +1,11 @@
 var app = angular.module('app', ['ngResource']),
-    rankingLength = 10;
+    rankingLength = 10,
+    Share;
 
 app.controller('ShareCtrl', function($scope, $resource) {
 
-    var Share = $resource('share/:id', {
+
+    Share = $resource('share/:id', {
         id: '@id'
     });
     var Votes = $resource('share/:id/votes', {
@@ -72,4 +74,5 @@ app.controller('ShareCtrl', function($scope, $resource) {
         $scope.subjects.push({});
     };
 
+    
 });

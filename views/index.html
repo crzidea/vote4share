@@ -20,9 +20,7 @@
     <img class="cube" src="http://vote4share.u.qiniudn.com/cube.png?imageView/2/h/299">
     <img class="font" src="http://vote4share.u.qiniudn.com/font.png?imageView/2/h/189">
 </div>
-<div class="container"></div>
-<div class="container">
-
+<div class="container"> 
     <div class="row" ng-controller="ShareCtrl">
         <div class="col-md-10">
             <h3 class="change_h3 h3-left">2013年度讲师评选</h3>
@@ -30,7 +28,7 @@
                 <ul class="list-unstyled">
                     <li class="li-share col-md-6 change" ng-repeat="s in share" id="share{{s.id}}" count-share="">
                         <div class="col-md-5 img"><i></i>
-                            <img class="img-rounded" ng-src="{{s.img}}?imageView/1/w/190/h/190" alt="{{s.name}}">
+                            <img class="img-rounded" ng-src="{{s.img}}?imageView/1/w/190/h/190/format/png" alt="{{s.name}}">
                         </div>
                         <div class="col-md-7 share">
                             <div class="photo_grid_author">讲师： {{s.speaker}}</div>
@@ -88,7 +86,6 @@
     </div>
     <!-- end contentC -->
 </div>
-<div class="container"></div>
 <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
