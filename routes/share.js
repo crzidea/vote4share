@@ -11,6 +11,7 @@ exports.list = function (req, res) {
     redisClient.keys(
         keyPrefix + '*',
         function (err, replies) {
+            if (err) return;
             var got = 0;
             replies.forEach(function (key) {
                 redisClient.hgetall(key, function (err, reply) {
@@ -30,6 +31,7 @@ exports.votes = function (req, res) {
     redisClient.hincrby(
         keyPrefix + req.params.id, 'votes', 1,
         function (err, reply) {
+            if (err) return;
             res.json({votes: reply});
         }
     )
@@ -45,6 +47,7 @@ exports.add = function (req, res) {
         req.body.subjects = JSON.stringify(req.body.subjects);
 
         redisClient.hmset(keyPrefix+id, req.body, function (err, reply) {
+            if (err) return;
             res.json({id:id})
         })
     })
@@ -55,6 +58,7 @@ exports.add = function (req, res) {
  */
 exports.del = function (req, res) {
     redisClient.del(keyPrefix+req.params.id, function (err, reply) {
+        if (err) return;
         res.json(reply);
     })
 };

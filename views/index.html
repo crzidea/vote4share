@@ -16,14 +16,13 @@
     <script type="text/javascript" src="./javascripts/share-ctrl.js"></script>
 </head>
 <body ng-app="app" id="ng-app">
-<div class="container">
-    <img class="cube" src="http://vote4share.u.qiniudn.com/cube.png?imageView/2/h/299">
-    <img class="font" src="http://vote4share.u.qiniudn.com/font.png?imageView/2/h/189">
+<div class="container" style="padding: 0;">
+    <img style="width: 100%" src="http://vote4share.u.qiniudn.com/banner.jpg">
 </div>
 <div class="container"> 
     <div class="row" ng-controller="ShareCtrl">
         <div class="col-md-10">
-            <h3 class="change_h3 h3-left">2013年度讲师评选</h3>
+            <div style="height: 30px;"></div>
             <div class="row" id="main-share">
                 <ul class="list-unstyled">
                     <li class="li-share col-md-6 change" ng-repeat="s in share" id="share{{s.id}}" count-share="">
