@@ -38,8 +38,12 @@ app.controller('ShareCtrl', function($scope, $resource) {
             Votes.save({
                 id: share.id
             }, function(data) {
-                share.votes = data.votes;
-                rank();
+                if (data.votes == -1) {
+                    alert('您今天已经投过飘了，谢谢参与！');
+                } else {
+                    share.votes = data.votes;
+                    rank();
+                }
             });
         };
 
@@ -74,5 +78,5 @@ app.controller('ShareCtrl', function($scope, $resource) {
         $scope.subjects.push({});
     };
 
-    
+
 });

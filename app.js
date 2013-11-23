@@ -2,13 +2,13 @@
  * Module dependencies.
  */
 var express = require('express'),
+    RedisStore = require('connect-redis')(express)
     routes = require('./routes'),
     http = require('http'),
     path = require('path'),
     config = require('./config'),
     cluster = require('cluster'),
-    http = require('http'),
-    numCPUs = require('os').cpus().length;
+    numCPUs = 2;
 
 if (cluster.isMaster) {
     // Fork workers.
@@ -31,6 +31,16 @@ if (cluster.isMaster) {
     app.use(express.json());
     app.use(express.urlencoded());
     app.use(express.methodOverride());
+    app.use(express.cookieParser());
+    app.use(express.session({
+        store: new RedisStore({
+            host: config.redis.host,
+            port: config.redis.port,
+            pass: config.redis.password,
+            ttl: config.sessionTtl
+        }),
+        secret: config.sessionSecret
+    }));
     app.use(app.router);
     app.use(express.static(path.join(__dirname, 'public')));
     app.use(express.static(path.join(__dirname, 'views')));
