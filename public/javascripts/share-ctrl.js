@@ -39,7 +39,7 @@ app.controller('ShareCtrl', function($scope, $resource) {
                 id: share.id
             }, function(data) {
                 if (data.votes == -1) {
-                    alert('您今天已经投过飘了，谢谢参与！');
+                    alert('您今天已经投过票了，谢谢参与！');
                 } else {
                     share.votes = data.votes;
                     rank();
