@@ -29,7 +29,7 @@ exports.list = function(req, res) {
  * POST /share/:id/votes
  */
 exports.votes = function(req, res) {
-    if (req.session.voted) {
+    if (!req.session.voteAccess || req.session.voted) {
         res.json({
             votes: -1
         });
