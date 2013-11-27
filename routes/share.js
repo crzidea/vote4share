@@ -29,7 +29,7 @@ exports.list = function(req, res) {
  * POST /share/:id/votes
  */
 exports.votes = function(req, res) {
-    req.ip = req.connection.remoteAddress;
+    req.ip = req.headers['x-real-ip'];
     redisClient.get('ip:' + req.ip, function(err, reply) {
         if (reply || !req.session.voteAccess || req.session.voted) {
             res.json({

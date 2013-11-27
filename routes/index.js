@@ -2,7 +2,9 @@
  * GET home page.
  */
 exports.index = function(req, res) {
-	console.log(req.connection.remoteAddress);
+	if (req.headers['x-real-ip']) {
+		console.log(req.headers['x-realip'], req.headers['X-Forwarded-For']);
+	}
 	res.sendfile('views/index.html');
 	req.session.voteAccess = true;
 };
