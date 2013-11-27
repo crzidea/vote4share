@@ -29,8 +29,8 @@ exports.list = function(req, res) {
  * POST /share/:id/votes
  */
 exports.votes = function(req, res) {
-    req.ip = req.headers['x-forwarded-for'];
-    redisClient.get('ip:' + req.ip, function(err, reply) {
+    var remoteAddr = req.headers['x-forwarded-for'];
+    redisClient.get('ip:' + remoteAddr, function(err, reply) {
         if (reply || !req.session.voteAccess || req.session.voted) {
             res.json({
                 votes: -1
@@ -46,8 +46,8 @@ exports.votes = function(req, res) {
                     });
                 }
             )
-            console.log(req.ip, req.params.id, Date.now());
-            redisClient.setex('ip:' + req.ip, config.sessionTtl, Date.now());
+            console.log(remoteAddr, req.params.id, Date.now());
+            redisClient.setex('ip:' + remoteAddr, config.sessionTtl, Date.now());
         }
     })
 };
