@@ -29,22 +29,26 @@ exports.list = function(req, res) {
  * POST /share/:id/votes
  */
 exports.votes = function(req, res) {
-    if (!req.session.voteAccess || req.session.voted) {
-        res.json({
-            votes: -1
-        });
-    } else {
-        redisClient.hincrby(
-            keyPrefix + req.params.id, 'votes', 1,
-            function(err, reply) {
-                if (err) return
-                req.session.voted = true;
-                res.json({
-                    votes: reply
-                });
-            }
-        )
-    }
+    redisClient.get('ip:' + req.ip, function(err, reply) {
+        if (reply || !req.session.voteAccess || req.session.voted) {
+            res.json({
+                votes: -1
+            });
+        } else {
+            redisClient.hincrby(
+                keyPrefix + req.params.id, 'votes', 1,
+                function(err, reply) {
+                    if (err) return
+                    req.session.voted = true;
+                    res.json({
+                        votes: reply
+                    });
+                }
+            )
+            console.log(req.ip, req.params.id, Date.now());
+            redisClient.setex('ip:' + req.ip, config.sessionTtl, Date.now());
+        }
+    })
 };
 
 /**
