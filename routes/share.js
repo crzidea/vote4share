@@ -16,7 +16,11 @@ exports.list = function(req, res) {
             var got = 0;
             replies.forEach(function(key) {
                 redisClient.hgetall(key, function(err, reply) {
-                    reply.subjects = JSON.parse(reply.subjects);
+                    try {
+                        reply.subjects = JSON.parse(reply.subjects);
+                    } catch (e) {
+                        console.log(key);
+                    }
                     share.push(reply);
                     ++got == replies.length && res.json(share);
                 })
