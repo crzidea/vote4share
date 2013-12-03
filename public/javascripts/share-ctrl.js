@@ -38,11 +38,17 @@ app.controller('ShareCtrl', function($scope, $resource) {
             Votes.save({
                 id: share.id
             }, function(data) {
-                if (data.votes == -1) {
-                    alert('您今天已经投过票了，谢谢参与！');
-                } else {
-                    share.votes = data.votes;
-                    rank();
+                switch (data.votes) {
+                    case -1:
+                        alert('您今天已经投过票了，谢谢参与！');
+                        break;
+                    case -2:
+                        alert('投票已经结束，谢谢参与！');
+                        break;
+                    default:
+                        share.votes = data.votes;
+                        rank();
+                        break;
                 }
             });
         };

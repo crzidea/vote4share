@@ -1,13 +1,13 @@
 var redisClient = require('../lib/redis'),
     config = require('../config'),
     keyPrefix = config.keyPrefix,
-    idKey = config.idKey;
+    idKey = config.idKey,
+    deadline = new Date(config.deadline);
 
 /**
  * GET: /share
  */
 exports.list = function(req, res) {
-
     var share = [];
     redisClient.keys(
         keyPrefix + '*',
@@ -33,6 +33,13 @@ exports.list = function(req, res) {
  * POST /share/:id/votes
  */
 exports.votes = function(req, res) {
+    if (deadline < Date.now) {
+        res.json({
+            votes: -2
+        })
+        return
+    }
+    
     var remoteAddr = req.headers['x-real-ip'];
     redisClient.get('ip:' + remoteAddr, function(err, reply) {
         if (reply || !req.session.voteAccess || req.session.voted) {
