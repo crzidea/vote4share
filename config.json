@@ -4,10 +4,10 @@
         "host": "",
         "password": ""
     },
-	"keyPrefix": "share:",
-	"idKey": "shareid",
-	"sessionSecret": "secret",
-	"sessionTtl": 86400,
-	"deadline": "2013-12-5",
-	"port": 8080
+    "keyPrefix": "share:",
+    "idKey": "shareid",
+    "sessionSecret": "secret",
+    "sessionTtl": 86400,
+    "deadline": "2013-12-5",
+    "port": 8080
 }
