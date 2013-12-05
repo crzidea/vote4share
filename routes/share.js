@@ -33,13 +33,13 @@ exports.list = function(req, res) {
  * POST /share/:id/votes
  */
 exports.votes = function(req, res) {
-    if (deadline < Date.now) {
+    if (deadline < Date.now()) {
         res.json({
             votes: -2
         })
         return
     }
-    
+
     var remoteAddr = req.headers['x-real-ip'];
     redisClient.get('ip:' + remoteAddr, function(err, reply) {
         if (reply || !req.session.voteAccess || req.session.voted) {

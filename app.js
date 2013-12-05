@@ -52,9 +52,9 @@ if (cluster.isMaster) {
     app.get('/', routes.index);
 
     app.get('/share', routes.share.list);
-    app.post('/share', routes.share.add);
+    // app.post('/share', routes.share.add);
     app.post('/share/:id/votes', routes.share.votes);
-    app.delete('/share/:id', routes.share.del);
+    // app.delete('/share/:id', routes.share.del);
 
     http.createServer(app).listen(app.get('port'), function() {
         console.log('Express server listening on port ' + app.get('port'));
